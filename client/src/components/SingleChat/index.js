@@ -45,7 +45,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     Authorization: `Bearer ${user.data.accessToken}`
                 }
             };
-            const { data } = await axios.get(`https://ag-chat-app-node.herokuapp.com/${selectedChat._id}`, config);
+            const { data } = await axios.get(`https://chatapp-ag.onrender.com/${selectedChat._id}`, config);
             setMessages(data.message);
             setLoading(false);
 
@@ -103,7 +103,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     }
                 };
                 setNewMessage("");
-                const { data } = await axios.post("https://ag-chat-app-node.herokuapp.com/message", {
+                const { data } = await axios.post("https://chatapp-ag.onrender.com/message", {
                     chatId: selectedChat._id,
                     content: newMessage
                 }, config);

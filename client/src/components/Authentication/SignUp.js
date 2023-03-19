@@ -99,14 +99,18 @@ const SignUp = () => {
                     "Content-type": "application/json",
                 }
             };
-            const { data } = await axios.post("https://ag-chat-app-node.herokuapp.com/register", {
+            const { data } = await axios.post("https://chatapp-ag.onrender.com/register", {
                 name: name,
                 email: email,
                 password: password,
                 image: pic
             }, config);
+            setConfirmpassword('')
+            setName('')
+            setEmail('')
+            setPassword('')
             toast({
-                title: "Please Check your Gmail",
+                title: "Please Check your Email",
                 status: "success",
                 duration: 10000,
                 isClosable: true,
@@ -133,6 +137,7 @@ const SignUp = () => {
                 <Input
                     placeholder='Enter Your Name'
                     onChange={(e) => setName(e.target.value)}
+                    value={name}
                 />
             </FormControl>
             <FormControl id='email' isRequired>
@@ -140,6 +145,7 @@ const SignUp = () => {
                 <Input
                     placeholder='Enter Your Email'
                     onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                 />
             </FormControl>
             <FormControl id='password' isRequired>
@@ -149,6 +155,7 @@ const SignUp = () => {
                         type={show ? "text" : "password"}
                         placeholder='Enter Your Password'
                         onChange={(e) => setPassword(e.target.value)}
+                        value={password}
                     />
                     <InputRightElement width="4.5rem">
                         <Button onClick={handleClick} h='1.7rem'>
@@ -165,6 +172,7 @@ const SignUp = () => {
                         type={show ? "text" : "password"}
                         placeholder='Confirm Password'
                         onChange={(e) => setConfirmpassword(e.target.value)}
+                        value={confirmpassword}
                     />
                     <InputRightElement width="4.5rem">
                         <Button onClick={handleClick} h='1.7rem'>
@@ -179,7 +187,7 @@ const SignUp = () => {
                     type="file"
                     p={1.5}
                     accept="images/*"
-                    onChange={(e) => postDetails(e.target.files[0])}
+                    onChange={(e) => (postDetails(e.target.files[0]))}
                 />
             </FormControl>
 

@@ -36,9 +36,9 @@ const Login = () => {
             const config = {
                 headers: {
                     "Content-type": "application/json",
-                }
+                } 
             };
-            const { data } = await axios.post("https://ag-chat-app-node.herokuapp.com/login", {
+            const { data } = await axios.post("https://chatapp-ag.onrender.com/login", {
                 email,
                 password,
             }, config);

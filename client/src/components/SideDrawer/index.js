@@ -61,7 +61,7 @@ const SideDrawer = () => {
                 }
             };
 
-            const { data } = await axios.get(`https://ag-chat-app-node.herokuapp.com/users?search=${search}`, config);
+            const { data } = await axios.get(`https://chatapp-ag.onrender.com/users?search=${search}`, config);
             setLoading(false);
             setSearchResult(data.users);
             // console.log(data.users);
@@ -86,7 +86,7 @@ const SideDrawer = () => {
                     Authorization: `Bearer ${user.data.accessToken}`,
                 }
             };
-            const { data } = await axios.post("https://ag-chat-app-node.herokuapp.com/chat", {
+            const { data } = await axios.post("https://chatapp-ag.onrender.com/chat", {
                 id: userId
             }, config);
 
